@@ -7,7 +7,7 @@ use LWP::UserAgent;
 
 {
     my $_ua = LWP::UserAgent->new;
-    sub GetUserAgent { return $_ua }
+    sub GetUserAgentInstance { return $_ua }
 }
 
 sub Execute {
@@ -19,7 +19,7 @@ sub Execute {
         return 0;
     }
 
-    my $ua  = __PACKAGE__->GetUserAgent;
+    my $ua  = __PACKAGE__->GetUserAgentInstance;
     my $res = $ua->get($job->arg->{url});
 
     unless ($res->is_success) {
