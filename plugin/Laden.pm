@@ -29,6 +29,7 @@ for my $member_name (keys %class_members) {
     *{__PACKAGE__."::${member_name}"} = $accessor;
 }
 
-sub new { bless {}, shift }
+sub new           { bless {}, shift }
+sub class_members { return \%class_members }
 
 1; # end of this class
