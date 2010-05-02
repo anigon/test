@@ -30,3 +30,4 @@ print $ope->plus($adapter), "\n";
 
 exit;
 
+# end of this script
