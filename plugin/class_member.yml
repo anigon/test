@@ -1,0 +1,4 @@
+class_members:
+  fisch_list: Laden::Artikel::List::Fisch
+  fleisch_list: Laden::Artikel::List::Fleisch
+
