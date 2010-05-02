@@ -28,10 +28,20 @@ sub append {
 
 sub exec {
     my $self = shift;
+    my $gast = shift;
+
+    (ref $gast) =~ /^Gast/
+        or confess "gast must be class of Gast";
+
+    my $geld_des_gasts = $gast->geld;
 
     for my $artikel (@{$self->{_list}}) {
-        print $artikel->name, " - ", $artikel->preis, "\n";
+        my ($type) = (ref $artikel) =~ /([^:]+)$/;
+        print $artikel->name, "(${type}) - ", $artikel->preis, "\n";
+        $geld_des_gasts -= $artikel->preis;
     }
+
+    $gast->geld($geld_des_gasts);
 
     return $self;
 }
