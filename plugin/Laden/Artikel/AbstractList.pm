@@ -46,4 +46,8 @@ sub exec {
     return $self;
 }
 
+sub element_class_name {
+    confess "element_class_name must be overridden";
+}
+
 1; # end of this class
