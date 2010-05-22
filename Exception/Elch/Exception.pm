@@ -12,15 +12,15 @@ sub new   {
 }
 
 sub throw {
-    my $self = shift;
-    my %arg  = @_;
+    my $class = shift;
+    my %arg   = @_;
 
     my @trace = caller;
     my %param = (
             %arg,
             trace => \@trace
     );
-    die $self->new(%param);
+    die __PACKAGE__->new(%param);
 }
 
 sub get_message { shift->{message} }
